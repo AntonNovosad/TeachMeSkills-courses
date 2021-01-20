@@ -12,8 +12,8 @@ package Homeworks.Lesson2;
 
 public class Task7 {
     public static void main(String[] args) {
-        int a = 22;
-        if (a > 10 && a < 20) {
+        int a = 114;
+        if (a % 100 > 10 && a % 100 < 20) {
             System.out.println(a + " программистов");
         } else if (a % 10 == 2 || a % 10 == 3 || a % 10 == 4) {
             System.out.println(a + " программиста");
