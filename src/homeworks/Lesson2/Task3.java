@@ -5,7 +5,7 @@
 Вывести полученное число.
  */
 
-package Homeworks.Lesson2;
+package homeworks.Lesson2;
 
 public class Task3 {
     public static void main(String[] args) {

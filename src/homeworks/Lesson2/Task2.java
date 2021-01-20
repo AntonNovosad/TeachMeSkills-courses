@@ -7,7 +7,7 @@
 то треугольника с такими сторонами не существует.
  */
 
-package Homeworks.Lesson2;
+package homeworks.Lesson2;
 
 public class Task2 {
     public static void main(String[] args) {

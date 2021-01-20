@@ -2,7 +2,7 @@
 Даны 3 целых числа. Найти количество положительных чисел в исходном наборе.
  */
 
-package Homeworks.Lesson2;
+package homeworks.Lesson2;
 
 public class Task4 {
     public static void main(String[] args) {

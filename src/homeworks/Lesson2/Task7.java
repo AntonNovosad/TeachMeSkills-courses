@@ -8,7 +8,7 @@
 • и т.д.
  */
 
-package Homeworks.Lesson2;
+package homeworks.Lesson2;
 
 public class Task7 {
     public static void main(String[] args) {

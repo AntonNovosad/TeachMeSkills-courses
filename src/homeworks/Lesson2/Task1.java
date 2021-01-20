@@ -5,7 +5,7 @@
 Достаточно будет определить, является ли число однозначным, двухзначным или трехзначным и более.
  */
 
-package Homeworks.Lesson2;
+package homeworks.Lesson2;
 
 public class Task1 {
     public static void main(String[] args) {

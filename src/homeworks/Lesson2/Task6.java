@@ -2,7 +2,7 @@
 Даны 2 числа. Вывести большее из них.
  */
 
-package Homeworks.Lesson2;
+package homeworks.Lesson2;
 
 public class Task6 {
     public static void main(String[] args) {

@@ -3,7 +3,7 @@
  Найти количество положительных и отрицательных чисел в исходном наборе.
  */
 
-package Homeworks.Lesson2;
+package homeworks.Lesson2;
 
 public class Task5 {
     public static void main(String[] args) {
