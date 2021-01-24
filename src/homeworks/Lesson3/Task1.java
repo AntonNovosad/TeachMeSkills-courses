@@ -11,8 +11,8 @@ public class Task1 {
         double way = 10.0;
         double result = 0;
         for (int i = 0; i < 7; i++) {
-            way += way * 0.1;
             result += way;
+            way += way * 0.1;
         }
         System.out.println("Суммарный путь = " + result + " км");
     }
