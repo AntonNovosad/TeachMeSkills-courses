@@ -17,15 +17,15 @@ public class Task9 {
         System.out.println(Arrays.toString(array));
 
         int c = 10;
-        int counter = 0;
-        int sum = 0;
+        double counter = 0.0;
+        double sum = 0.0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] > c) {
                 counter++;
                 sum += array[i];
             }
         }
-        int mean = sum / counter;
+        double mean = sum / counter;
         System.out.println("Среднее арифметическое по условию = " + mean);
     }
 }
