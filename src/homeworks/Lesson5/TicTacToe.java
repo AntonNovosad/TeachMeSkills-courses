@@ -14,40 +14,50 @@ public class TicTacToe {
         System.out.println();
 
         System.out.println("Игра началась!");
-        initialMatrix(matrix);
+        createInitialMatrix(matrix);
 
         gameTicTacToe(matrix, playerX, playerO);
     }
 
     private static void gameTicTacToe(char[][] matrix, String playerX, String playerO) {
+        boolean isXStep = true;
+        char element;
+        String playerName;
         do {
-            System.out.println("Ход игрока " + playerX + "(X)");
-            inputElements(matrix, elementX());
+            if (isXStep) {
+                element = elementX();
+                playerName = playerX;
+            } else {
+                element = elementO();
+                playerName = playerO;
+            }
+            System.out.println("Ход игрока " + playerName + "(" + element + ")");
+            inputElements(matrix, element);
             printMatrix(matrix);
-            System.out.println("Ход игрока " + playerO + "(O)");
-            inputElements(matrix, elementO());
-            printMatrix(matrix);
-        } while (!checkSameElements(matrix));
-        printMatrix(matrix);
+            isXStep = !isXStep;
+        } while (!isGameFinished(matrix));
+        System.out.println();
+        if (isDraw(matrix)) {
+            System.out.println("Ничья");
+        } else printGameResult(playerName, element);
     }
 
-    private static boolean checkSameElements(char[][] matrix) {
-        boolean sameElements = false;
-        if (checkSameElementInRows(matrix)) {
-            sameElements = true;
-//        }else if (checkSameElementInColumns(matrix)){
-//            sameElements = true;
-//        }else if (checkSameElementInDiagonal(matrix)){
-//            sameElements = true;
-//        }else if (checkSameElementInReverseDiagonal(matrix)){
-//            sameElements = true;
-        } else{
-            counterSteps(matrix);
-        }
-        return sameElements;
+    private static void printGameResult(String playerName, char element) {
+        System.out.println("Игра окончена. " + playerName + "(" + element + ") победил.");
     }
 
-    private static boolean counterSteps(char[][] matrix) {
+    private static boolean isGameFinished(char[][] matrix) {
+        return isSomebodyWin(matrix) || isDraw(matrix);
+    }
+
+    private static boolean isSomebodyWin(char[][] matrix) {
+        return checkSameElementInRows(matrix) ||
+                checkSameElementInColumns(matrix) ||
+                checkSameElementInDiagonal(matrix) ||
+                checkSameElementInReverseDiagonal(matrix);
+    }
+
+    private static boolean isDraw(char[][] matrix) {
         boolean counterSteps = false;
         int counter = 0;
         for (int i = 0; i < matrix.length; i++) {
@@ -57,7 +67,6 @@ public class TicTacToe {
             }
         }
         if (counter == 9) {
-            System.out.println("Ничья");
             counterSteps = true;
         }
         return counterSteps;
@@ -68,20 +77,14 @@ public class TicTacToe {
         int counterX = 0;
         int counterO = 0;
         for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][i] == elementX()) {
-                    counterX++;
-                } else if (matrix[i][i] == elementO()) {
-                    counterO++;
-                }
+            if (matrix[i][i] == elementX()) {
+                counterX++;
+            } else if (matrix[i][i] == elementO()) {
+                counterO++;
             }
         }
-        if (counterX == 3) {
+        if (counterX == 3 || counterO == 3) {
             sameElements = true;
-            System.out.println("Игра окончена. " + namePlayerX() + "(Х) победил.");
-        } else if (counterO == 3) {
-            sameElements = true;
-            System.out.println("Игра окончена. " + namePlayerO() + "(O) победил.");
         }
         return sameElements;
     }
@@ -91,20 +94,14 @@ public class TicTacToe {
         int counterX = 0;
         int counterO = 0;
         for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][matrix.length - 1 - i] == elementX()) {
-                    counterX++;
-                } else if (matrix[i][matrix.length - 1 - i] == elementO()) {
-                    counterO++;
-                }
+            if (matrix[i][matrix.length - 1 - i] == elementX()) {
+                counterX++;
+            } else if (matrix[i][matrix.length - 1 - i] == elementO()) {
+                counterO++;
             }
         }
-        if (counterX == 3) {
+        if (counterX == 3 || counterO == 3) {
             sameElements = true;
-            System.out.println("Игра окончена. " + namePlayerX() + "(Х) победил.");
-        } else if (counterO == 3) {
-            sameElements = true;
-            System.out.println("Игра окончена. " + namePlayerO() + "(O) победил.");
         }
         return sameElements;
     }
@@ -118,20 +115,16 @@ public class TicTacToe {
             counterX = 0;
             counterO = 0;
             for (int j = 0; j < matrix[i].length; j++) {
-                if (columns[j] == elementX()) {
+                columns[j] = matrix[j][i];
+                char element = columns[j];
+                if (element == elementX()) {
                     counterX++;
-                } else if (columns[j] == elementO()) {
+                } else if (element == elementO()) {
                     counterO++;
                 }
             }
-            if (counterX == 3) {
+            if (counterO == 3 || counterX == 3) {
                 sameElementInColumns = true;
-                System.out.println("Игра окончена. " + namePlayerX() + "(Х) победил.");
-                break;
-            } else if (counterO == 3) {
-                sameElementInColumns = true;
-                System.out.println("Игра окончена. " + namePlayerO() + "(O) победил.");
-                break;
             }
         }
         return sameElementInColumns;
@@ -151,13 +144,8 @@ public class TicTacToe {
                     counterO++;
                 }
             }
-            if (counterX == 3) {
+            if (counterX == 3 || counterO == 3) {
                 sameElementsInRows = true;
-                System.out.println("Игра окончена. " + namePlayerX() + "(Х) победил.");
-                break;
-            } else if (counterO == 3) {
-                sameElementsInRows = true;
-                System.out.println("Игра окончена. " + namePlayerO() + "(O) победил.");
                 break;
             }
         }
@@ -167,20 +155,20 @@ public class TicTacToe {
     private static void inputElements(char[][] matrix, char element) {
         int coordinateX = coordinateInputX();
         int coordinateY = coordinateInputY();
-        boolean isTrue = false;
+        boolean isInputValid = false;
         do {
             if (matrix[coordinateX - 1][coordinateY - 1] == elementX()) {
                 System.out.println("Ячейка занята! Повторите ввод");
-                coordinateInputX();
-                coordinateInputY();
+                coordinateX = coordinateInputX();
+                coordinateY = coordinateInputY();
             } else if (matrix[coordinateX - 1][coordinateY - 1] == elementO()) {
                 System.out.println("Ячейка занята! Повторите ввод");
-                coordinateInputX();
-                coordinateInputY();
+                coordinateX = coordinateInputX();
+                coordinateY = coordinateInputY();
             } else {
-                isTrue = true;
+                isInputValid = true;
             }
-        } while (!isTrue);
+        } while (!isInputValid);
         matrix[coordinateX - 1][coordinateY - 1] = element;
     }
 
@@ -196,6 +184,7 @@ public class TicTacToe {
             } else {
                 System.out.println("Вы ввели не число. Введите число.");
                 scanner.next();
+                continue;
             }
             if (coordinateX < 1 || coordinateX > 3) {
                 System.out.println("Вы вышли за пределы поля");
@@ -218,6 +207,7 @@ public class TicTacToe {
             } else {
                 System.out.println("Вы ввели не число. Введите число.");
                 scanner.next();
+                continue;
             }
             if (coordinateY < 1 || coordinateY > 3) {
                 System.out.println("Вы вышли за пределы поля");
@@ -226,6 +216,10 @@ public class TicTacToe {
             }
         } while (!isNumber);
         return coordinateY;
+    }
+
+    private static char elementEmpty() {
+        return '.';
     }
 
     private static char elementX() {
@@ -257,8 +251,8 @@ public class TicTacToe {
         return scanner.nextLine();
     }
 
-    private static void initialMatrix(char[][] matrix) {
-        char point = '.';
+    private static void createInitialMatrix(char[][] matrix) {
+        char point = elementEmpty();
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 matrix[i][j] = point;
