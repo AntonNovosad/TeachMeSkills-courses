@@ -65,7 +65,7 @@ public class TicTacToe {
                     counter++;
             }
         }
-        return  (counter == 9 && !isSomebodyWin(matrix));
+        return (counter == 9 && !isSomebodyWin(matrix));
     }
 
     private static boolean checkSameElementInDiagonal(char[][] matrix) {
@@ -95,6 +95,7 @@ public class TicTacToe {
     }
 
     private static boolean checkSameElementInColumns(char[][] matrix) {
+        boolean sameElements = false;
         int counterX;
         int counterO;
         char[] columns = new char[matrix[0].length];
@@ -110,12 +111,15 @@ public class TicTacToe {
                     counterO++;
                 }
             }
-            return counterO == 3 || counterX == 3;
+            if (counterX == 3 || counterO == 3) {
+                sameElements = true;
+            }
         }
-        return false;
+        return sameElements;
     }
 
     private static boolean checkSameElementInRows(char[][] matrix) {
+        boolean sameElements = false;
         int counterX;
         int counterO;
         for (char[] chars : matrix) {
@@ -128,9 +132,11 @@ public class TicTacToe {
                     counterO++;
                 }
             }
-            return counterX == 3 || counterO == 3;
+            if (counterX == 3 || counterO == 3) {
+                sameElements = true;
+            }
         }
-        return false;
+        return sameElements;
     }
 
 
