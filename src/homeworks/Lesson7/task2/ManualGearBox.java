@@ -9,6 +9,6 @@ public class ManualGearBox extends GearBox {
     }
 
     public void gearShift(){
-        System.out.println("fddfdfdf");
+        System.out.println("Переключаю на 1-ю передачу из " + getNumberOfGears());
     }
 }
