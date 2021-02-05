@@ -13,7 +13,9 @@ public class Main {
 
 
         car1.start();
+        car1.gearBox();
         System.out.println();
         car2.start();
+        car2.gearBox();
     }
 }
