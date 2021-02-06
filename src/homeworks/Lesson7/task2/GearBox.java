@@ -19,6 +19,5 @@ public class GearBox {
     }
 
     public void gearBox(){
-        System.out.println("Машина заведена.");
     }
 }
