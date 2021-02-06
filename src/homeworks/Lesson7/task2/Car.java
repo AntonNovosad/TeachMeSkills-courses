@@ -1,5 +1,7 @@
 package homeworks.Lesson7.task2;
 
+import java.util.Random;
+
 public class Car {
     private String marka;
     private int price;
@@ -40,12 +42,21 @@ public class Car {
         this.engine = engine;
     }
 
-    public void start(){
-        engine.start();
-        System.out.println(marka + " завелся");
+    private boolean check() {
+        boolean check = false;
+        Random random = new Random();
+        int a = random.nextInt(10);
+        return a % 2 == 0;
     }
 
-    public void gearBox(){
-        gearBox.gearBox();
+    public void start() {
+        if (check()) {
+            engine.start();
+            System.out.println(marka + " завелся");
+            gearBox.gearBox();
+        } else {
+            engine.start();
+            System.out.println(marka + " не завелась");
+        }
     }
 }
