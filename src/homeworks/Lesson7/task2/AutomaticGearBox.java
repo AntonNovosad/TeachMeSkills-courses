@@ -19,7 +19,7 @@ public class AutomaticGearBox extends GearBox {
         this.nameOfGear = nameOfGear;
     }
 
-    public void choiceOfGear(){
+    public void gearBox() {
         System.out.println("Выбран режим передачи: " + nameOfGear);
     }
 }
