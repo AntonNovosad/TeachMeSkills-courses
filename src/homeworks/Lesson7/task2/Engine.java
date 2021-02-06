@@ -18,7 +18,6 @@ public class Engine {
         this.power = power;
     }
 
-    public void start(){
-        System.out.println("Базовая реалтзация запуска ");
+    public void start() {
     }
 }
