@@ -20,7 +20,7 @@ public class DieselEngine extends Engine {
         this.volume = volume;
     }
 
-    public void startDieselEngine(){
-        System.out.println("Запуск дизельного двигателя " + getPower() + " объемом " + volume);
+    public void start() {
+        System.out.println("Запуск дизельного двигателя мощностью " + getPower() + " Л.С. и объемом " + volume + "л.");
     }
 }
