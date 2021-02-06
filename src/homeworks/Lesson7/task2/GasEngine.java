@@ -9,8 +9,8 @@ public class GasEngine extends Engine {
     public GasEngine() {
     }
 
-    public void startGasEngine(){
-        System.out.println("Запуск бензинового двигателя " + getPower());
-    }
 
+    public void start() {
+        System.out.println("Запуск бензинового двигателя мощностью " + getPower() + " Л.С.");
+    }
 }
