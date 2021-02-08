@@ -36,11 +36,4 @@ public class Ground extends Transport {
         System.out.println(abilitiesGround());
     }
 
-    @Override
-    public void distance(double time) {
-    }
-
-    @Override
-    public void carrying(double kilogram) {
-    }
 }
