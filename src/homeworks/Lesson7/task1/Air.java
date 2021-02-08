@@ -38,17 +38,4 @@ public class Air extends Transport {
         super.descriptionAir();
         System.out.println(abilitiesAir());
     }
-
-    @Override
-    public void passengers(int passengers) {
-    }
-
-    @Override
-    public void useRocket() {
-    }
-
-    @Override
-    public void ejections() {
-
-    }
 }
