@@ -42,6 +42,7 @@ public class PassengerCar extends Ground {
         return "Тип кузова: " + typeCarcass + ". Кол-ва пассажиров: " + numberOfPassengers;
     }
 
+    @Override
     public void descriptionGround() {
         super.descriptionGround();
         System.out.println(abilitiesCars());
