@@ -31,9 +31,9 @@ public class Ground extends Transport {
     }
 
     @Override
-    public void descriptionGround() {
-        super.descriptionGround();
+    public void description() {
+        System.out.println("Марка автомобиля: " + getModel());
+        super.description();
         System.out.println(abilitiesGround());
     }
-
 }
