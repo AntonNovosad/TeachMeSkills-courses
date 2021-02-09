@@ -33,7 +33,6 @@ public class CivilPlane extends Air {
         return "Кол-во мест: " + numberOfPassengers + ". Наличие бизнес класса: " + businessClass;
     }
 
-    @Override
     public void passengers(int passengers) {
         if (passengers < numberOfPassengers && passengers >= 0) {
             numberOfPassengers -= passengers;
@@ -45,8 +44,8 @@ public class CivilPlane extends Air {
     }
 
     @Override
-    public void descriptionAir() {
-        super.descriptionAir();
+    public void description() {
+        super.description();
         System.out.println(abilitiesCivilPlane());
     }
 }

@@ -29,7 +29,7 @@ public class WarPlane extends Air {
         this.numberOfRocket = numberOfRocket;
     }
 
-    @Override
+
     public void useRocket() {
         numberOfRocket--;
         if (numberOfRocket >= 0) {
@@ -37,7 +37,6 @@ public class WarPlane extends Air {
         } else System.out.println("Ракеты закончились");
     }
 
-    @Override
     public void ejections() {
         if (ejectionSystem) {
             System.out.println("Катапультирование прошло успешно");
@@ -51,8 +50,8 @@ public class WarPlane extends Air {
     }
 
     @Override
-    public void descriptionAir() {
-        super.descriptionAir();
+    public void description() {
+        super.description();
         System.out.println(abilitiesWarPlane());
     }
 }
