@@ -19,7 +19,6 @@ public class AutoTruck extends Ground {
         this.carryingCapacity = carryingCapacity;
     }
 
-    @Override
     public void carrying(double kilogram) {
         if (kilogram < carryingCapacity && kilogram >= 0) {
             carryingCapacity -= kilogram;
@@ -35,8 +34,8 @@ public class AutoTruck extends Ground {
     }
 
     @Override
-    public void descriptionGround() {
-        super.descriptionGround();
+    public void description() {
+        super.description();
         System.out.println(abilitiesTruck());
     }
 }

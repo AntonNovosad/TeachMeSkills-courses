@@ -43,12 +43,11 @@ public class PassengerCar extends Ground {
     }
 
     @Override
-    public void descriptionGround() {
-        super.descriptionGround();
+    public void description() {
+        super.description();
         System.out.println(abilitiesCars());
     }
 
-    @Override
     public void distance(double time) {
         System.out.println(time(time));
     }
