@@ -34,8 +34,9 @@ public class Air extends Transport {
     }
 
     @Override
-    public void descriptionAir() {
-        super.descriptionAir();
+    public void description() {
+        System.out.println("Модель самолета: " + getModel());
+        super.description();
         System.out.println(abilitiesAir());
     }
 }
