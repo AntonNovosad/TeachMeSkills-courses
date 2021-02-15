@@ -13,9 +13,9 @@ public class Application {
 
 
     private void run() {
-        int numberOne = inputNumberOne();
-        int numberTwo = inputNumberTwo();
         while (true) {
+            int numberOne = inputNumberOne();
+            int numberTwo = inputNumberTwo();
             Operation value = select();
             if (value == null) {
                 break;
