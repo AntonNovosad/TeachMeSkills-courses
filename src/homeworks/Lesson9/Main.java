@@ -10,8 +10,8 @@ public class Main {
             car1.start();
             car2.start();
             car3.start();
-        } catch (CarExeption carExeption) {
-            System.out.println(carExeption.getMessage());
+        } catch (CarException carException) {
+            System.out.println(carException.getMessage());
         }
     }
 }

@@ -40,11 +40,11 @@ public class Car {
         this.price = price;
     }
 
-    public void start() throws CarExeption {
+    public void start() throws CarException {
         Random random = new Random();
         int number = random.nextInt(20);
         if (number % 2 == 0) {
-            throw new CarExeption(number);
+            throw new CarException(number);
         } else System.out.println("Машина маркой " + marka + " завелась.");
     }
 }
