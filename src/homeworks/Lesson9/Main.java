@@ -8,7 +8,17 @@ public class Main {
 
         try {
             car1.start();
+        } catch (CarException carException) {
+            System.out.println(carException.getMessage());
+        }
+
+        try {
             car2.start();
+        } catch (CarException carException) {
+            System.out.println(carException.getMessage());
+        }
+
+        try {
             car3.start();
         } catch (CarException carException) {
             System.out.println(carException.getMessage());
