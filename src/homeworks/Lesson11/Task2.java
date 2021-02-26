@@ -5,7 +5,10 @@
 
 package homeworks.Lesson11;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
 
 public class Task2 {
     public static void main(String[] args) {
@@ -17,17 +20,32 @@ public class Task2 {
         System.out.println(Arrays.toString(str));
         System.out.println();
 
-        StringBuilder stringBuilder = new StringBuilder();
-        String newStr;
         System.out.print("Слова палиндромы: ");
 
         for (int i = 0; i < str.length; i++) {
-            stringBuilder.insert(0, str[i]);
+            StringBuilder stringBuilder = new StringBuilder(str[i]);
             stringBuilder.reverse();
-            newStr = stringBuilder.toString();
-            stringBuilder.delete(0, str[i].length());
-            if (str[i].equals(newStr)) {
+            if (stringBuilder.toString().equals(str[i])) {
                 System.out.print(str[i] + " ");
+            }
+        }
+
+        // через List
+
+        System.out.println();
+        System.out.println("Через List: ");
+        List<String> strings = new ArrayList<>();
+        strings.add("Привет");
+        strings.add("Довод");
+        strings.add("Завод");
+        strings.add("Радар");
+        strings.add("Стол");
+
+        for (String s : strings) {
+            StringBuilder stringBuilder = new StringBuilder(s);
+            stringBuilder.reverse();
+            if (stringBuilder.toString().equalsIgnoreCase(s)) {
+                System.out.println(s);
             }
         }
     }
