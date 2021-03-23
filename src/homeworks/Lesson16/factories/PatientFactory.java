@@ -13,7 +13,7 @@ public class PatientFactory {
 
     static {
         try {
-            names = new ArrayList<>(Files.readAllLines(Paths.get("homeworks/Lesson16/factories/name.txt")));
+            names = new ArrayList<>(Files.readAllLines(Paths.get("src/homeworks/Lesson16/factories/name.txt")));
         } catch (IOException e) {
             names = new ArrayList<>();
         }
