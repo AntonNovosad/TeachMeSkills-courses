@@ -1,19 +1,19 @@
-package homeworks.Lesson16;
+package homeworks.Lesson16.config;
 
 public enum QualificationLevel {
     INTERN {
         public String getValue() {
-            return "Интерн ";
+            return "Интерн";
         }
     },
-    ORDINARYDOCTOR {
+    ORDINARY_DOCTOR {
         public String getValue() {
-            return "Обычный врач ";
+            return "Врач";
         }
     },
-    DEPARTMENTHEAD {
+    DEPARTMENT_HEAD_DOCTOR {
         public String getValue() {
-            return "Заведующий отделением ";
+            return "Заведующий отделением";
         }
     };
 
