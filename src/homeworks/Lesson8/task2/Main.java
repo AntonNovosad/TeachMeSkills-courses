@@ -17,16 +17,12 @@ public class Main {
 
         System.out.println();
         Musician[] quartet = {musician1, musician2, musician3, musician4};
-        int maxAge = quartet[0].getAge();
+        Musician maxAge = quartet[0];
         for (int i = 0; i < quartet.length; i++) {
-            if (quartet[i].getAge() > maxAge) {
-                maxAge = quartet[i].getAge();
+            if (quartet[i].getAge() > maxAge.getAge()) {
+                maxAge = quartet[i];
             }
         }
-        for (int i = 0; i < quartet.length; i++) {
-            if (maxAge == quartet[i].getAge()) {
-                quartet[i].performASong("Сидел в траве кузнечик");
-            }
-        }
+        maxAge.performASong("Кузнечик");
     }
 }
