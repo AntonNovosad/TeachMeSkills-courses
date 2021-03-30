@@ -17,41 +17,50 @@ public class Task6 {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите переменную больше 3-х");
+        int[] array = new int[0];
         int n = 0;
-        if (scanner.hasNextInt()) {
-            n = scanner.nextInt();
-        } else {
-            System.out.println("Вы ввели не число");
+        boolean isNumber = false;
+        boolean isTrueNumber = false;
+
+        do {
+            if (scanner.hasNextInt()) {
+                n = scanner.nextInt();
+                isNumber = true;
+            } else {
+                System.out.println("Вы ввели не число. Введите число.");
+                scanner.next();
+            }
+            if (n <= 3) {
+                System.out.println("Число не соответствует условию");
+            } else {
+                isTrueNumber = true;
+                array = new int[n];
+                for (int i = 0; i < array.length; i++) {
+                    array[i] = random.nextInt(n);
+                }
+                System.out.println(Arrays.toString(array));
+            }
+        } while (!isNumber || !isTrueNumber);
+
+        int counter = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0 && array[i] != 0) {
+                counter++;
+            }
         }
 
-        if (n <= 3) {
-            System.out.println("Число не соответствует условию");
-        } else {
-            int[] array = new int[n];
-            for (int i = 0; i < array.length; i++) {
-                array[i] = random.nextInt(n);
-            }
-            System.out.println(Arrays.toString(array));
-
-            int counter = 0;
-            for (int i = 0; i < array.length; i++) {
-                if (array[i] % 2 == 0 && array[i] != 0) {
-                    counter++;
+        int[] arrayChet = new int[counter];
+        int chetIndex = -1;
+        for (int i = 0; i < arrayChet.length; i++) {
+            for (int j = i; j < array.length; j++) {
+                if (array[j] != 0 && array[j] % 2 == 0 && j != chetIndex) {
+                    arrayChet[i] = array[j];
+                    chetIndex = j;
+                    break;
                 }
             }
-            int[] arrayChet = new int[counter];
-            int chetIndex = -1;
-            for (int i = 0; i < arrayChet.length; i++) {
-                for (int j = i; j < array.length; j++) {
-                    if (array[j] != 0 && array[j] % 2 == 0 && j != chetIndex) {
-                        arrayChet[i] = array[j];
-                        chetIndex = j;
-                        break;
-                    }
-                }
-            }
-            System.out.println("Массив с четными элементами");
-            System.out.println(Arrays.toString(arrayChet));
         }
+        System.out.println("Массив с четными элементами");
+        System.out.println(Arrays.toString(arrayChet));
     }
 }
